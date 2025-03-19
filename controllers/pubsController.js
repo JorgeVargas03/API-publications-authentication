@@ -37,18 +37,18 @@ exports.createPublication = async (req, res) => {
       });
     }
 
-    const { author, title, content } = req.body;
+    const author = req.username;
+    const {title, content } = req.body;
 
     // Validar que los campos no estén vacíos
-    if (!author || !title || !content) {
+    if (!title || !content) {
       return res.status(400).json({
-        message: "Debe proporcionar author, title y content correctamente.",
+        message: "Debe proporcionar title y content correctamente.",
       });
     }
 
     // Validar tipos de datos
     if (
-      typeof author !== "string" ||
       typeof title !== "string" ||
       typeof content !== "string"
     ) {
@@ -139,7 +139,8 @@ exports.getComments = async (req, res) => {
 // Agregar un comentario a una publicación
 exports.addCommentToPublication = async (req, res) => {
   try {
-    const { user, content } = req.body;
+    const { content } = req.body;
+    const user = req.username;
 
     if (!user || !content) {
       return res

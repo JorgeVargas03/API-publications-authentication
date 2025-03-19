@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const controllerPubs = require("../controllers/pubsController");
 
+const { authenticateToken } = require('../middleware/authMiddleware');
+
 /**
  * @route GET /publication
  * @description Obtiene todas las publicaciones.
@@ -9,7 +11,7 @@ const controllerPubs = require("../controllers/pubsController");
  * @returns {Object} 404 - Mensaje si no se encuentran publicaciones
  * @returns {Object} 500 - Mensaje de error
  */
-router.get("/publication", controllerPubs.getAllPublications);
+router.get("/publication", authenticateToken, controllerPubs.getAllPublications);
 
 /**
  * @route GET /publication/:id
@@ -19,7 +21,7 @@ router.get("/publication", controllerPubs.getAllPublications);
  * @returns {Object} 404 - Mensaje si no se encuentra la publicación.
  * @returns {Object} 500 - Mensaje de error.
  */
-router.get("/publication/:id", controllerPubs.getPublicationById);
+router.get("/publication/:id", authenticateToken, controllerPubs.getPublicationById);
 
 /**
  * @route POST /publication
@@ -32,7 +34,7 @@ router.get("/publication/:id", controllerPubs.getPublicationById);
  * @returns {Object} 400 - Mensaje si los datos proporcionados son inválidos.
  * @returns {Object} 500 - Mensaje de error.
  */
-router.post("/publication", controllerPubs.createPublication);
+router.post("/publication", authenticateToken, controllerPubs.createPublication);
 
 /**
  * @route DELETE /publication/:id
@@ -42,7 +44,7 @@ router.post("/publication", controllerPubs.createPublication);
  * @returns {Object} 404 - Mensaje si la publicación no existe.
  * @returns {Object} 500 - Mensaje de error si ocurre un problema en la eliminación.
  */
-router.delete("/publication/:id", controllerPubs.deletePublication);
+router.delete("/publication/:id", authenticateToken, controllerPubs.deletePublication);
 
 /**
  * @route PUT /publication/:id
@@ -53,7 +55,7 @@ router.delete("/publication/:id", controllerPubs.deletePublication);
  * @returns {Object} 404 - Mensaje si la publicación no existe.
  * @returns {Object} 500 - Mensaje de error si ocurre un problema en la actualización.
  */
-router.put("/publication/:id", controllerPubs.updatePublication);
+router.put("/publication/:id", authenticateToken, controllerPubs.updatePublication);
 
 /**
  * @route GET /publication/:idPub/comments
@@ -63,7 +65,7 @@ router.put("/publication/:id", controllerPubs.updatePublication);
  * @returns {Object} 404 - Mensaje si la publicación o comentarios no existen.
  * @returns {Object} 500 - Mensaje de error.
  */
-router.get("/publication/:idPub/comments", controllerPubs.getComments);
+router.get("/publication/:idPub/comments", authenticateToken, controllerPubs.getComments);
 
 /**
  * @route POST /publication/:idPub/comment
@@ -76,7 +78,7 @@ router.get("/publication/:idPub/comments", controllerPubs.getComments);
  * @returns {Object} 400 - Datos inválidos.
  * @returns {Object} 500 - Mensaje de error.
  */
-router.post("/publication/:idPub/comment", controllerPubs.addCommentToPublication);
+router.post("/publication/:idPub/comment", authenticateToken, controllerPubs.addCommentToPublication);
 
 /**
  * @route DELETE /publication/:idPub/comment/:idComment
@@ -87,7 +89,7 @@ router.post("/publication/:idPub/comment", controllerPubs.addCommentToPublicatio
  * @returns {Object} 404 - Comentario o publicación no encontrado.
  * @returns {Object} 500 - Mensaje de error.
  */
-router.delete("/publication/:idPub/comment/:idComment", controllerPubs.deleteComment);
+router.delete("/publication/:idPub/comment/:idComment", authenticateToken, controllerPubs.deleteComment);
 
 /**
  * @route PUT /publication/:idPub/comment/:idComment
@@ -100,7 +102,7 @@ router.delete("/publication/:idPub/comment/:idComment", controllerPubs.deleteCom
  * @returns {Object} 404 - Comentario o publicación no encontrado.
  * @returns {Object} 500 - Mensaje de error.
  */
-router.put("/publication/:idPub/comment/:idComment", controllerPubs.updateComment);
+router.put("/publication/:idPub/comment/:idComment", authenticateToken, controllerPubs.updateComment);
 
 /**
  * @route PATCH /publication/:idPub/comment/:idComment/like
@@ -111,7 +113,7 @@ router.put("/publication/:idPub/comment/:idComment", controllerPubs.updateCommen
  * @returns {Object} 404 - Comentario o publicación no encontrado.
  * @returns {Object} 500 - Mensaje de error.
  */
-router.patch("/publication/:idPub/comment/:idComment/like", controllerPubs.updateLikeComment);
+router.patch("/publication/:idPub/comment/:idComment/like", authenticateToken, controllerPubs.updateLikeComment);
 
 /**
  * @route GET /publication/trends/popular
@@ -119,6 +121,6 @@ router.patch("/publication/:idPub/comment/:idComment/like", controllerPubs.updat
  * @returns {Array} 200 - Lista de publicaciones populares.
  * @returns {Object} 500 - Mensaje de error.
  */
-router.get("/publication/trends/popular", controllerPubs.getMostTrend);
+router.get("/publication/trends/popular", authenticateToken, controllerPubs.getMostTrend);
 
 module.exports = router;
