@@ -1,10 +1,15 @@
 # Desarrollo de Servicios Web
 
 **Equipo:**  
+
 Betancourt Espericueta Jorge Ismael - 21400655
+
 Natividad Aguilera Andrick Joksan -21400736
+
 Sánchez Leal Britney Bellanay - 21400778
+
 Vargas Partida Jorge Luis - 21400786
+
 Martinez Velazquez Pedro - 19400615
  
 ## Contenido
