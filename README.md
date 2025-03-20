@@ -25,5 +25,3 @@ Gestión de publicaciones: Los usuarios pueden crear, leer, actualizar y elimina
 Gestión de eventos: Los usuarios pueden crear, leer, actualizar y eliminar comentarios relacionados con el proyecto.
 
 Módulo inteligente: Permite obtener tendencias y regular el contenido en los comentarios, evitando comentarios inadecuados.
-
-Endpoints RESTful: La API está estructurada según los principios REST para una integración fácil con sistemas externos.
