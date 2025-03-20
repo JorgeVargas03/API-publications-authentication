@@ -1,14 +1,19 @@
 # Desarrollo de Servicios Web
 
 **Equipo:**  
-Betancourt Espericueta Jorge Ismael - 21400655  
-
+Betancourt Espericueta Jorge Ismael - 21400655
+Natividad Aguilera Andrick Joksan -21400736
+Sánchez Leal Britney Bellanay - 21400778
+Vargas Partida Jorge Luis - 21400786
+Martinez Velazquez Pedro - 19400615
+ 
 ## Contenido
 
-En esta actividad, se desarrollaron y probaron APIs utilizando API REST y Firebase. Se utilizó Insomnia para facilitar el consumo y la prueba de las APIs. A continuación se describen las operaciones realizadas:
+Este proyecto consiste en el desarrollo de una API REST que gestiona publicaciones y comentarios, permitiendo a los usuarios interactuar con ellos de forma sencilla y eficiente. La aplicación está diseñada para facilitar la creación, modificación y eliminación de publicaciones y comentarios, con un enfoque especial en la seguridad mediante la implementación de autenticación basada en JWT (JSON Web Tokens).
 
-- **GET**: Se realizó una petición para obtener todas las tareas almacenadas, donde se recuperaron un total de 4 tareas disponibles.
-- **GET**: Se hizo una petición para obtener una tarea específica identificada por el ID: `GPZ0JZWvXAi80e43eRMq`.
-- **POST**: Para crear una nueva tarea, se envió un objeto JSON en el cuerpo de la solicitud, lo que permitió agregar una tarea a la base de datos.
-- **PUT**: Se utilizó para actualizar una tarea existente, enviando un nuevo título en el cuerpo de la solicitud.
-- **DELETE**: Se eliminó una tarea utilizando su ID, lo que permitió comprobar la funcionalidad de eliminación en la API.
+Características principales
+Autenticación con JWT: Protege las rutas de la API para garantizar que solo los usuarios autenticados puedan acceder a ciertos recursos.
+Gestión de publicaciones: Los usuarios pueden crear, leer, actualizar y eliminar publicaciones.
+Gestión de eventos: Los usuarios pueden crear, leer, actualizar y eliminar comentarios relacionados con el proyecto.
+Módulo inteligente: Permite obtener tendencias y regular el contenido en los comentarios, evitando comentarios inadecuados.
+Endpoints RESTful: La API está estructurada según los principios REST para una integración fácil con sistemas externos.
